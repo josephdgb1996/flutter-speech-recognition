@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:proyect/screens/signal-menu-screen.dart';
 import 'package:proyect/screens/spech-recognition-screen.dart';
+import 'package:proyect/screens/test-menu-screen.dart.dart';
+import 'package:proyect/partials/menu-item-widget.dart';
 
 class MenuScreen extends StatelessWidget {
   const MenuScreen({Key key}) : super(key: key);
@@ -47,44 +50,25 @@ class MenuScreen extends StatelessWidget {
   }
 
   Widget menuSliderWidget(BuildContext context) {
-    TextStyle textStyle = TextStyle(color: Colors.white, fontSize: 30.0);
-
     List<Widget> items = [
-      Container(
-          height: 500,
-          width: 300,
-          color: Colors.green,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text("Aprendizaje", style: textStyle),
-            ],
-          )),
-      Container(
-          height: 500,
-          width: 300,
-          color: Colors.green,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text("Practica", style: textStyle),
-            ],
-          )),
       GestureDetector(
-          onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => SpeechRecognitionScreen()));
-          },
-          child: Container(
-              height: 500,
-              width: 300,
-              color: Colors.green,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[Text("Conversacion", style: textStyle)],
-              )))
+        onTap: () {
+          Navigator.push(context,MaterialPageRoute(builder: (context) => SignalMenuScreen()));
+        },
+        child: menuItemWidget("Señas", Colors.green),
+      ),
+      GestureDetector(
+        onTap: () {
+          Navigator.push(context,MaterialPageRoute(builder: (context) => TestMenuScreen()));
+        },
+        child: menuItemWidget("Pruebas", Colors.blueAccent),
+      ),
+      GestureDetector(
+        onTap: () {
+          Navigator.push(context,MaterialPageRoute(builder: (context) => SpeechRecognitionScreen()));
+        },
+        child: menuItemWidget("Audio", Colors.orange),
+      )
     ];
 
     return CarouselSlider(

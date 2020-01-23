@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
         supportedLocales: [
           const Locale('es','ES'),
         ],
+        theme: ThemeData(primaryColor: Colors.green),
         debugShowCheckedModeBanner: false,
         title: 'Material App',
         home: MenuScreen());
